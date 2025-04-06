@@ -10,6 +10,11 @@ import LogoutButton from './components/LogoutButton'
 
 [1,2,3,4,5]: number[]
 ['abc', '1231', 'adsa']: string[]
+
+// thanh
+
+
+// ghuy
 */
 
 
