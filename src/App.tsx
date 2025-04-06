@@ -23,6 +23,7 @@ import JSX from './JSX';
 import Props from './Props';
 import State from './State';
 import ConditionalRendering from './ConditionalRendering';
+import TonyGuestGreeting from './sampleApp/tony/TonyGuestGreeting';
 
 function App() {
 
@@ -40,6 +41,9 @@ function App() {
 
       <br />
       <ConditionalRendering />
+
+      <br />
+      <TonyGuestGreeting />
 
       <br />
       <br />
