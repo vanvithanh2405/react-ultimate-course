@@ -23,7 +23,7 @@ $ git commit -m "{message}"
 $ git push
 
 # 2. create PR
-# click Pull Request tab -> click "New Pull Request"
+# click Pull Request tab -> click "New Pull Request" -> choose base (target branch) and compare (your branch) -> click Create Pull Request
 
 
 ```
