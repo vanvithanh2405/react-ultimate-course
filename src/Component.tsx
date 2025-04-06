@@ -44,25 +44,39 @@ interface StateFulComponentProps {
 function StateFulComponent({ timer = 1 }: StateFulComponentProps) {
   const [count, setCount] = React.useState(1);
 
-  function updateCount() {
-    setCount(prevState => prevState + timer)
+  // user click -> () => {} -> updateCount()
+  // re-create function every component re-render - memory B
+  function updateCount(number: number) {
+    console.log('updateCount')
+    setCount(prevState => prevState + timer + number)
   }
+
+  // curry function
+  // user click -> updateCount()
+  // const updateCount = (number: number) => () => {
+  //   console.log('updateCount')
+  //   setCount(prevState => prevState + timer + number)
+  // }
 
   console.log('StateFulComponent')
   return (
     <div>
       StatefulComponent: {count} <br />
-      <button type="button" onClick={updateCount}>
+      <button 
+        type="button" 
+        onClick={() => {
+          updateCount(10)
+        }}
+        // onClick={updateCount(10)}
+      >
         Update Count
       </button>
     </div>
   )
 }
 
-
 function Component() {
   const [timer, setTimer] = React.useState(2);
-
 
   return (
     <div>

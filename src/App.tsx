@@ -22,6 +22,7 @@ import Component from './Component';
 import JSX from './JSX';
 import Props from './Props';
 import State from './State';
+import ConditionalRendering from './ConditionalRendering';
 
 function App() {
 
@@ -36,6 +37,9 @@ function App() {
 
       <br />
       <Component />
+
+      <br />
+      <ConditionalRendering />
 
       <br />
       <br />
