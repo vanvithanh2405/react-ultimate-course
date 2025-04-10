@@ -24,6 +24,7 @@ import Props from './Props';
 import State from './State';
 import ConditionalRendering from './ConditionalRendering';
 import TonyGuestGreeting from './sampleApp/tony/TonyGuestGreeting';
+import HuyGuestGreeting from './sampleApp/huy/HuyGuestGreeting';
 
 function App() {
 
@@ -45,7 +46,9 @@ function App() {
       <br />
       <TonyGuestGreeting />
 
+      
       <br />
+      <HuyGuestGreeting/>
       <br />
       <br />
       <br />
