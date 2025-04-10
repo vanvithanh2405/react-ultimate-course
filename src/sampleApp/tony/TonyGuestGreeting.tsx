@@ -1,6 +1,6 @@
 import React from 'react'
 // import GuestGreeting from './components/GuestGreeting';
-import UserGreeting from './components/userGreeting';
+import UserGreeting from './components/UserGreeting';
 
 function TonyGuestGreeting() {
   const [isAuth, setIsAuth] = React.useState(false);
