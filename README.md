@@ -8,7 +8,7 @@
 - hotfix: Hotfix branch when an incident occurs or bug fix on production env
 - bugfix: bugfix branch when QC team detect on qc/uat
 
-### Command
+### Step to step when implement feature
 
 ```bash
 # create new branch
@@ -24,6 +24,28 @@ $ git push
 
 # 2. create PR
 # click Pull Request tab -> click "New Pull Request" -> choose base (target branch) and compare (your branch) -> click Create Pull Request
+```
 
+### Resolve conflict code
+#### Why is conflict code 
+When many branch code on a file.
 
+#### Step to step to resolve conflict
+- Ex: conflict code at main branch
+- branch: huy/guestGreeting bị conflict
+
+```bash
+# 1. checkout new branch from base branch to fix conflict
+$ git checkout main
+$ git checkout -b huy/guestGreeting-main-fc
+
+# 2. merge huy/guestGreeting branch into uy/guestGreeting-main-fc branch
+$ git merge --no-ff huy/guestGreeting
+
+# 3. push code after fix done conflict
+$ git add .
+$ git commit
+$ git push
+
+# 4. create PR
 ```
