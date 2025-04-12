@@ -25,6 +25,7 @@ import State from './State';
 import ConditionalRendering from './ConditionalRendering';
 import TonyGuestGreeting from './sampleApp/tony/TonyGuestGreeting';
 import ThanhGuestGreeting from './sampleApp/thanh/ThanhGuestGreeting';
+import HuyGuestGreeting from './sampleApp/huy/HuyGuestGreeting';
 
 function App() {
 
@@ -46,8 +47,10 @@ function App() {
       <br />
       <TonyGuestGreeting />
 
+      
       <br />
       <ThanhGuestGreeting />
+      <HuyGuestGreeting/>
       <br />
       <br />
       <br />
