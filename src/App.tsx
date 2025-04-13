@@ -26,6 +26,9 @@ import ConditionalRendering from './ConditionalRendering';
 import TonyGuestGreeting from './sampleApp/tony/TonyGuestGreeting';
 import ThanhGuestGreeting from './sampleApp/thanh/ThanhGuestGreeting';
 import HuyGuestGreeting from './sampleApp/huy/HuyGuestGreeting';
+import ListKey from './ListKey';
+import CSS from './CSS';
+import PropDrillingLiftingStateUp from './PropDrilling-LiftingStateUp';
 
 function App() {
 
@@ -52,6 +55,14 @@ function App() {
       <ThanhGuestGreeting />
       <HuyGuestGreeting/>
       <br />
+      <ListKey />
+
+      <br />
+      <CSS />
+
+      <br />
+      <PropDrillingLiftingStateUp />
+
       <br />
       <br />
       <br />

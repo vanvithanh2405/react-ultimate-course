@@ -1,3 +1,5 @@
+import styles from './typhography.module.css';
+
 interface TypographyProps {
   name: React.ReactNode,
   age: number,
@@ -33,7 +35,9 @@ function Typography({
   })
 
   return (
-    <div>
+    <div 
+      className={`text-sm ${styles['text-color']}`}
+    >
       Name: {name} <br/>
       Age: {age} <br />
       This is children: {children} <br />

@@ -11,14 +11,27 @@ function HuyGuestGreeting() {
 
   return (
     <div>
-      {isLogin ? <UserGreeting
+      {/* {isLogin ? <UserGreeting
       handleChange={handleLogin}
       text= {'Welcome to'}
       name={'huy'}
        /> : <GuestGreeting
       handleChange={handleLogin}
       text={'Please sign up'}
-       />}
+       />} */}
+
+      {isLogin ? (
+        <UserGreeting
+          handleChange={handleLogin}
+          text= {'Welcome to'}
+          name={'huy'}
+        /> 
+       ) : (
+        <GuestGreeting
+          handleChange={handleLogin}
+          text={'Please sign up'}
+        />
+      )}
     </div>
   );
 }
