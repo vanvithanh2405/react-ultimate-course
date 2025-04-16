@@ -1,5 +1,5 @@
 import { useState } from "react";
-import styles from './css/BoxGenerator.module.css';
+import styles from './css/Main.module.css';
 
 const data = [
     {id: 1, text: 'red', backgroundColor: 'red'},

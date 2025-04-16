@@ -1,0 +1,62 @@
+.container {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    max-width: 400px;
+}
+
+.box {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+.colorBox {
+    width: 160px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.questionBoardContainer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.column {
+    margin: 0 15px 50px;
+    width: 33%;
+}
+
+.boards {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+    background-color: #fff;
+    border: 1px solid #dcdcdc;
+    border-radius: 4px;
+    padding: 16px;
+}
+
+.statusNode {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+}
+
+.title {
+    font-size: 16px;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 0px;
+}

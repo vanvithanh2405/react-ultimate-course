@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { getRandomColor } from './helper/BoxHelpers';
-import styles from './css/BoxGenerator.module.css';
+import styles from './css/Main.module.css';
 
 interface Box {
     id: string 

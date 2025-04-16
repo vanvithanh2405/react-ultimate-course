@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import questionsData from './data/dataQuestions.json';
 import submissionsData from './data/dataSubmissions.json';
 import { getStatusColor } from './helper/QuestionBoardHelpers';
+import styled from './css/Main.module.css';
 
 interface Question {
     id: string;
@@ -47,24 +48,29 @@ function ThanhQuestionBoard() {
             return acc;
         }, {} as Record<string, GroupedQuestions[]>);
         setGroupedQuestions(groupedByStatus);
-
     }, []);
 
     return (
         <>
             <h1>Questions Board</h1>
-            {Object.entries(groupedQuestions).map(([category, questions]) => (
-                <div key={category}>
-                    <h2>{category}</h2>
-                    <ul>
-                        {questions.map((q) => (
-                            <li key={q.id} style={{ color: getStatusColor(q.status) }}>
-                                {q.name}
-                            </li>
-                        ))}
-                    </ul>
-                </div>
-            ))}
+            <div className={styled.questionBoardContainer} >
+                {Object.entries(groupedQuestions).map(([category, questions]) => {
+                    const count = questions.filter((q) => q.status === 'CORRECT').length;
+                    return <div className={styled.column} key={category}>
+                        <span>{category} - {count} / {questions.length}</span>
+                        <div>
+                            {questions.map((q) => (
+                                <div className={styled.boards} key={q.id}>
+                                    <div className={styled.statusNode} style={{ backgroundColor: getStatusColor(q.status) }}></div>
+                                    <h2 className={styled.title}>{q.name}</h2>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                    
+                })}
+            </div>
+            
         </>
     )
 }
