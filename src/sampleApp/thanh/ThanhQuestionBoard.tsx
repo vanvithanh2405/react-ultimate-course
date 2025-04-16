@@ -36,7 +36,7 @@ function ThanhQuestionBoard() {
             return acc;
         }, {})
 
-        const groupedByStatus = Object.keys(groupedByCategory).reduce((acc: any, category: string) => {
+        const groupedByStatus = Object.keys(groupedByCategory).reduce((acc: Record<string, GroupedQuestions[]>, category: string) => {
             acc[category] = groupedByCategory[category].map((question: Question) => {
                 const submission = submissions.find((s: Submission) => s.questionId === question.id);
                 return {
@@ -46,7 +46,8 @@ function ThanhQuestionBoard() {
                 };
             });
             return acc;
-        }, {} as Record<string, GroupedQuestions[]>);
+        }, {});
+
         setGroupedQuestions(groupedByStatus);
     }, []);
 
@@ -55,14 +56,16 @@ function ThanhQuestionBoard() {
             <h1>Questions Board</h1>
             <div className={styled.questionBoardContainer} >
                 {Object.entries(groupedQuestions).map(([category, questions]) => {
-                    const count = questions.filter((q) => q.status === 'CORRECT').length;
+                    const correctQuestions = questions.filter((question) => question.status === 'CORRECT').length;
+                    const totalQuestions = questions.length;
+
                     return <div className={styled.column} key={category}>
-                        <span>{category} - {count} / {questions.length}</span>
+                        <span>{category} - {correctQuestions} / {totalQuestions}</span>
                         <div>
-                            {questions.map((q) => (
-                                <div className={styled.boards} key={q.id}>
-                                    <div className={styled.statusNode} style={{ backgroundColor: getStatusColor(q.status) }}></div>
-                                    <h2 className={styled.title}>{q.name}</h2>
+                            {questions.map((question) => (
+                                <div className={styled.boards} key={question.id}>
+                                    <div className={styled.statusNode} style={{ backgroundColor: question.color }}></div>
+                                    <h2 className={styled.title}>{question.name}</h2>
                                 </div>
                             ))}
                         </div>
