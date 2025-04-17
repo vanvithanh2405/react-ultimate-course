@@ -11,10 +11,6 @@ function ThanhGenerateBox() {
     const [boxCount, setBoxCount] = useState('');
     const [boxes, setBoxes] = useState<Box[]>([]);
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setBoxCount(e.target.value);
-    }
-    
     const handleClickGenerate = () => {
         const n = parseInt(boxCount);
         if (!isNaN(n) && n >= 1 && n <= 128) {
@@ -35,7 +31,7 @@ function ThanhGenerateBox() {
                     <input
                         type='text'
                         value={boxCount}
-                        onChange={handleChange}
+                        onChange={(e: React.ChangeEvent<HTMLInputElement>) => setBoxCount(e.target.value)}
                     />
                 </label>
                 <button onClick={handleClickGenerate}>Generate</button>
