@@ -7,16 +7,16 @@ interface Box {
 }
 
 function GenerateBox() {
-  const [boxNumber, setBoxNumber] = useState(0);
+  const [boxNumber, setBoxNumber] = useState<number | undefined>(undefined);
   const [boxes, setBoxes] = useState<Box[]>([]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    let value = parseInt(e.target.value, 10);
+    const value = parseInt(e.target.value);
     if (isNaN(value) || value < 0 || value > 128) {
-      value = 0;
+      setBoxNumber(undefined);
+      return;
     }
     setBoxNumber(value);
-    console.log(setBoxNumber);
   };
 
   const getRandomColor = (): string => {
@@ -25,11 +25,17 @@ function GenerateBox() {
   };
 
   const handleClickChange = () => {
+    if (boxNumber === undefined) return;
+    if (boxNumber === 0) {
+      setBoxes([{ id: -1, color: "" }]);
+      return;
+    }
+
     const newBoxes: Box[] = Array.from({ length: boxNumber }, (_, index) => ({
       id: index + 1,
       color: getRandomColor(),
     }));
-    return setBoxes(newBoxes);
+    setBoxes(newBoxes);
   };
 
   return (
@@ -39,11 +45,19 @@ function GenerateBox() {
       <input type="text" onChange={handleChange} />
       <button onClick={handleClickChange}>Generate</button>
       <div className={styled.boxContainer}>
-        {boxes.map((box) => (
-          <div className={styled.box} style={{ backgroundColor: box.color }}>
-            <p>Box #{box.id}</p>
-          </div>
-        ))}
+        {boxes.length === 1 && boxes[0].id === -1 ? (
+          <p>No box</p>
+        ) : (
+          boxes.map((box) => (
+            <div
+              key={box.id}
+              className={styled.box}
+              style={{ backgroundColor: box.color }}
+            >
+              <p>Box #{box.id}</p>
+            </div>
+          ))
+        )}
       </div>
     </div>
   );
