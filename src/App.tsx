@@ -30,6 +30,7 @@ import ListKey from './ListKey';
 import CSS from './CSS';
 import PropDrillingLiftingStateUp from './PropDrilling-LiftingStateUp';
 import ColorBox from './sampleApp/huy/ColorBox';
+import GenerateBox from './sampleApp/huy/GenerateBox';
 
 function App() {
 
@@ -67,6 +68,7 @@ function App() {
       <br />
       <ColorBox/>
       <br />
+      <GenerateBox/>
       <br />
       <br />
       <br /><br />
