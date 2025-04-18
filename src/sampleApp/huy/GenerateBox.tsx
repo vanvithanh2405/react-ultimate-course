@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "./css/Box.module.css";
-import { getRandomColor } from "./helper/RandomColor"; 
+import { getRandomColor } from "./helper/RandomColor";
 interface Box {
   id: number;
   color: string;
@@ -18,11 +18,6 @@ function GenerateBox() {
     }
     setBoxNumber(value);
   };
-
-  // const getRandomColor = (): string => {
-  //   const colors = ["yellow", "green", "purple", "orange", "red", "pink"];
-  //   return colors[Math.floor(Math.random() * colors.length)];
-  // };
 
   const handleClickChange = () => {
     if (boxNumber === undefined) return;

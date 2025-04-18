@@ -1,4 +1,4 @@
- export const getRandomColor = (): string => {
+export const getRandomColor = (): string => {
   const colors = [
     "yellow",
     "green",
