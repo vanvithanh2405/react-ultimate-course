@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "./css/Box.module.css";
-
+import { getRandomColor } from "./helper/RandomColor"; 
 interface Box {
   id: number;
   color: string;
@@ -19,15 +19,15 @@ function GenerateBox() {
     setBoxNumber(value);
   };
 
-  const getRandomColor = (): string => {
-    const colors = ["yellow", "green", "purple", "orange", "red", "pink"];
-    return colors[Math.floor(Math.random() * colors.length)];
-  };
+  // const getRandomColor = (): string => {
+  //   const colors = ["yellow", "green", "purple", "orange", "red", "pink"];
+  //   return colors[Math.floor(Math.random() * colors.length)];
+  // };
 
   const handleClickChange = () => {
     if (boxNumber === undefined) return;
     if (boxNumber === 0) {
-      setBoxes([{ id: -1, color: "" }]);
+      setBoxes([{ id: 0, color: "" }]);
       return;
     }
 
@@ -45,7 +45,7 @@ function GenerateBox() {
       <input type="text" onChange={handleChange} />
       <button onClick={handleClickChange}>Generate</button>
       <div className={styled.boxContainer}>
-        {boxes.length === 1 && boxes[0].id === -1 ? (
+        {boxes.length === 1 && boxes[0].id === 0 ? (
           <p>No box</p>
         ) : (
           boxes.map((box) => (
