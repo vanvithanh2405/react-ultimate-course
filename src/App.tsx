@@ -31,6 +31,9 @@ import CSS from './CSS';
 import PropDrillingLiftingStateUp from './PropDrilling-LiftingStateUp';
 import ColorBox from './sampleApp/huy/ColorBox';
 import GenerateBox from './sampleApp/huy/GenerateBox';
+import ThanhGenerateBox from './sampleApp/thanh/ThanhGenerateBox';
+import ThanhColorBox from './sampleApp/thanh/ThanhColorBox';
+import ThanhQuestionBoard from './sampleApp/thanh/ThanhQuestionBoard';
 
 function App() {
 
@@ -64,9 +67,13 @@ function App() {
 
       <br />
       <PropDrillingLiftingStateUp />
-
+      
       <br />
       <ColorBox/>
+      <br />
+      <ThanhGenerateBox />
+      <ThanhColorBox />
+      <ThanhQuestionBoard />
       <br />
       <GenerateBox/>
       <br />
