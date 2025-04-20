@@ -9,43 +9,29 @@ const data = [
 ];
 
 function ColorBox() {
-  const [colors, setColors] = useState(data);
-  const [currText, setCurrText] = useState("default");
-  const [selectedId, setSelectedId] = useState<number | null>(null);
+  const [colors] = useState(data);
+  const [currentColor, setCurrentColor] = useState("default");
 
-  function handleBoxColor(idClicked: number, text: string) {
-    if (selectedId === idClicked) {
-      const resetColor = colors.map((color) => ({
-        ...color,
-        backgroundColor: color.text,
-      }));
-      setCurrText("default");
-      setSelectedId(null);
-      setColors(resetColor);
-    } else {
-      setSelectedId(idClicked);
-      setCurrText(text);
-      const updateColor = colors.map((color) => ({
-        ...color,
-        backgroundColor: text,
-      }));
-      setColors(updateColor);
+  function handleBoxColor(bgColor: string) {
+    if (bgColor === currentColor) {
+      setCurrentColor('default');
+      return
     }
+    setCurrentColor(bgColor)
   }
-  
 
   return (
     <div>
-      <h1>Color Box</h1>
-      <p>Current color: {currText}</p>
+      <h1>Huy Color Box</h1>
+      <p>Current color: {currentColor}</p>
       <div className={styled.container}>
         {colors.map((color) => {
           return (
             <div
               key={color.id}
-              style={{ backgroundColor: color.backgroundColor }}
+              style={{ backgroundColor:  currentColor === 'default' ? color.backgroundColor : currentColor }}
               className={styled.boxColor}
-              onClick={() => handleBoxColor(color.id, color.text)}
+              onClick={() => handleBoxColor(color.backgroundColor)}
             >
               {color.text}
             </div>

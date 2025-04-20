@@ -6,9 +6,37 @@ interface Box {
   color: string;
 }
 
+// first render: component render with initial state
+// next render: component render with new state
+
+interface BoxItemProps {
+  box: {
+    id: number,
+    color: string
+  }
+}
+
+function BoxItem({ box }: BoxItemProps) {
+  const [color, setColor] = React.useState(getRandomColor());
+
+  function handleClickBox() {
+    setColor(getRandomColor());
+  }
+
+  return (
+    <div
+      className={styled.box}
+      style={{ backgroundColor: color }}
+      onClick={handleClickBox}
+    >
+      <p>Box #{box.id}</p>
+    </div>
+  )
+}
+
 function GenerateBox() {
   const [boxNumber, setBoxNumber] = useState<number | undefined>(undefined);
-  const [boxes, setBoxes] = useState<Box[]>([]);
+  const [boxes, setBoxes] = useState<Box[]>([]); // so sanh tham chiếu
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = parseInt(e.target.value);
@@ -21,6 +49,7 @@ function GenerateBox() {
 
   const handleClickChange = () => {
     if (boxNumber === undefined) return;
+
     if (boxNumber === 0) {
       setBoxes([{ id: 0, color: "" }]);
       return;
@@ -44,13 +73,10 @@ function GenerateBox() {
           <p>No box</p>
         ) : (
           boxes.map((box) => (
-            <div
+            <BoxItem 
               key={box.id}
-              className={styled.box}
-              style={{ backgroundColor: box.color }}
-            >
-              <p>Box #{box.id}</p>
-            </div>
+              box={box}
+            />
           ))
         )}
       </div>
