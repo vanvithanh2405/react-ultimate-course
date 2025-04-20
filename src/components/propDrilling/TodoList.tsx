@@ -1,16 +1,16 @@
-import React from 'react'
 import TodoItem from './TodoItem'
 import { ITodoItem } from '../../PropDrilling-LiftingStateUp'
 
 interface TodoListProps {
-  todos: ITodoItem[]
+  todos: ITodoItem[],
+  deleteItem: (todoId: number) => void;
 }
 
-function TodoList({ todos }: TodoListProps) {
+function TodoList({ todos, deleteItem }: TodoListProps) {
   return (
     <ul>
       {todos.map(todoItem => (
-        <TodoItem key={todoItem.id} todoItem={todoItem} />
+        <TodoItem key={todoItem.id} todoItem={todoItem} deleteItem={deleteItem} />
       ))}
     </ul>
   )

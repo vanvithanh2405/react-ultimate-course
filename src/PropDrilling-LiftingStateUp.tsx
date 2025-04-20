@@ -17,13 +17,19 @@ function PropDrillingLiftingStateUp() {
       title: 'angular'
     }
   ])
+
+  function deleteItem(todoId: number) {
+    const newTodos = [...todos].filter(todo => todo.id !== todoId);
+    setTodos(newTodos);
+  }
+
   return (
     <div>
       <h1>PropDrillingLiftingStateUp</h1>
 
       <div>
         <h3>Todo List</h3>
-        <Todos todos={todos} />
+        <Todos todos={todos} deleteItem={deleteItem} />
       </div>
     </div>
   )

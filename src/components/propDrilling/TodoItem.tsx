@@ -1,16 +1,17 @@
-import React from 'react'
 import TodoLabel from './TodoLabel'
 import TodoButton from './TodoButton'
 import { ITodoItem } from '../../PropDrilling-LiftingStateUp'
 
 interface TodoItemProps {
-  todoItem: ITodoItem
+  todoItem: ITodoItem,
+  deleteItem: (todoId: number) => void;
 }
 
-function TodoItem({ todoItem }: TodoItemProps) {
+function TodoItem({ todoItem, deleteItem }: TodoItemProps) {
   return (
     <li>
-      <TodoLabel title={todoItem.title} /> <TodoButton />
+      <TodoLabel title={todoItem.title} /> 
+      <TodoButton id={todoItem.id} deleteItem={deleteItem} />
     </li>
   )
 }

@@ -1,8 +1,11 @@
-import React from 'react'
+interface TodoButtonProps {
+  id: number,
+  deleteItem: (todoId: number) => void;
+}
 
-function TodoButton() {
+function TodoButton({ id, deleteItem }: TodoButtonProps) {
   return (
-    <button>Delete</button>
+    <button onClick={() => deleteItem(id)}>Delete</button>
   )
 }
 

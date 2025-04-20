@@ -34,6 +34,8 @@ import GenerateBox from './sampleApp/huy/GenerateBox';
 import ThanhGenerateBox from './sampleApp/thanh/ThanhGenerateBox';
 import ThanhColorBox from './sampleApp/thanh/ThanhColorBox';
 import ThanhQuestionBoard from './sampleApp/thanh/ThanhQuestionBoard';
+import Form from './Form';
+
 
 function App() {
 
@@ -77,6 +79,14 @@ function App() {
       <br />
       <GenerateBox/>
       <br />
+      
+      <Form />
+      <br />
+      <br /><br /><br /><br />
+
+
+
+
       <br />
       <br /><br />
     </>

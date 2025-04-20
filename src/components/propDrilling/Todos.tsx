@@ -2,13 +2,14 @@ import TodoList from './TodoList'
 import { ITodoItem } from '../../PropDrilling-LiftingStateUp'
 
 interface TodosProps {
-  todos: ITodoItem[]
+  todos: ITodoItem[],
+  deleteItem: (todoId: number) => void;
 }
 
-function Todos({ todos }: TodosProps) {
+function Todos({ todos, deleteItem }: TodosProps) {
   return (
     <div>
-      <TodoList todos={todos} />
+      <TodoList todos={todos} deleteItem={deleteItem} />
     </div>
   )
 }
