@@ -35,7 +35,7 @@ import ThanhGenerateBox from './sampleApp/thanh/ThanhGenerateBox';
 import ThanhColorBox from './sampleApp/thanh/ThanhColorBox';
 import ThanhQuestionBoard from './sampleApp/thanh/ThanhQuestionBoard';
 import Form from './Form';
-
+import StateHook from './StateHook';
 
 function App() {
 
@@ -82,6 +82,12 @@ function App() {
       
       <Form />
       <br />
+
+      <StateHook />
+      <br />
+
+
+
       <br /><br /><br /><br />
 
 

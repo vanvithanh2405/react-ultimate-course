@@ -49,3 +49,9 @@ $ git push
 
 # 4. create PR
 ```
+
+
+## React lifecycle hooks
+- first render: component render UI with initial state
+- re-render (next render): component reder UI with new state
+- unmount: component removed out of DOM html
