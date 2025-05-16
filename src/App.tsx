@@ -34,8 +34,10 @@ import GenerateBox from './sampleApp/huy/GenerateBox';
 import ThanhGenerateBox from './sampleApp/thanh/ThanhGenerateBox';
 import ThanhColorBox from './sampleApp/thanh/ThanhColorBox';
 import ThanhQuestionBoard from './sampleApp/thanh/ThanhQuestionBoard';
+
 import Form from './Form';
 import StateHook from './StateHook';
+import HuyAccordion from './sampleApp/huy/components/HuyAccordion';
 
 function App() {
 
@@ -85,6 +87,10 @@ function App() {
 
       <StateHook />
       <br />
+
+
+      <HuyAccordion/>
+ 
 
 
 
