@@ -38,7 +38,7 @@ function ListKey() {
     setTodos(newTodos)
   }
 
-  console.log('todos', todos)
+  // console.log('todos', todos)
 
 
   return (

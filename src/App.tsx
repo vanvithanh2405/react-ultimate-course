@@ -38,8 +38,11 @@ import ThanhQuestionBoard from './sampleApp/thanh/ThanhQuestionBoard';
 import Form from './Form';
 import StateHook from './StateHook';
 import HuyAccordion from './sampleApp/huy/components/HuyAccordion';
+import EffectHook from './EffectHook';
+import React from 'react';
 
 function App() {
+  const [isShowEffectHook, setIsShowEffectHook] = React.useState(true);
 
   return (
     <>
@@ -90,6 +93,9 @@ function App() {
 
 
       <HuyAccordion/>
+      <br />
+      <button onClick={() => setIsShowEffectHook(prevState => !prevState)}>Toggle show EffectHook</button>
+      {isShowEffectHook && <EffectHook />}
  
 
 

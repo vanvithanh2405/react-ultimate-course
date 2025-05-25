@@ -6,7 +6,6 @@ import React from "react"
 // first render -> component render with initial state -> xong 1 chu ky render
 
 function initializeNumber() {
-  console.log('initializeNumber')
   return 5
 }
 
@@ -67,10 +66,10 @@ function StateHook() {
   }
 
   // UI
-  console.log('count: ', {
-    count,
-    user
-  })
+  // console.log('count: ', {
+  //   count,
+  //   user
+  // })
   return (
     <div>
       <h1>StateHook</h1>

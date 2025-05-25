@@ -23,16 +23,16 @@ function Typography({
   component2,
   ...restProps
 }: TypographyProps) {
-  console.log('Typography', {
-    name, 
-    age, 
-    colors,
-    first_name,
-    last_name,
-    restProps,
-    likeBird: restProps['like-bird'],
-    component2
-  })
+  // console.log('Typography', {
+  //   name, 
+  //   age, 
+  //   colors,
+  //   first_name,
+  //   last_name,
+  //   restProps,
+  //   likeBird: restProps['like-bird'],
+  //   component2
+  // })
 
   return (
     <div 
