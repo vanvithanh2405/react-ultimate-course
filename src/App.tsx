@@ -40,6 +40,7 @@ import StateHook from './StateHook';
 import HuyAccordion from './sampleApp/huy/components/HuyAccordion';
 import EffectHook from './EffectHook';
 import React from 'react';
+import JobBoard from './sampleApp/huy/components/JobBoard';
 
 function App() {
   const [isShowEffectHook, setIsShowEffectHook] = React.useState(true);
@@ -50,7 +51,8 @@ function App() {
 
       <Props />
 
-      <br /><br />
+      <br />
+      <br />
       <State />
 
       <br />
@@ -62,10 +64,9 @@ function App() {
       <br />
       <TonyGuestGreeting />
 
-      
       <br />
       <ThanhGuestGreeting />
-      <HuyGuestGreeting/>
+      <HuyGuestGreeting />
       <br />
       <ListKey />
 
@@ -74,41 +75,42 @@ function App() {
 
       <br />
       <PropDrillingLiftingStateUp />
-      
+
       <br />
-      <ColorBox/>
+      <ColorBox />
       <br />
       <ThanhGenerateBox />
       <ThanhColorBox />
       <ThanhQuestionBoard />
       <br />
-      <GenerateBox/>
+      <GenerateBox />
       <br />
-      
+
       <Form />
       <br />
 
       <StateHook />
       <br />
 
-
-      <HuyAccordion/>
+      <HuyAccordion />
       <br />
-      <button onClick={() => setIsShowEffectHook(prevState => !prevState)}>Toggle show EffectHook</button>
+      <button onClick={() => setIsShowEffectHook((prevState) => !prevState)}>
+        Toggle show EffectHook
+      </button>
       {isShowEffectHook && <EffectHook />}
- 
-
-
-
-      <br /><br /><br /><br />
-
-
-
 
       <br />
-      <br /><br />
+      <br />
+
+      <JobBoard />
+      <br />
+      <br />
+
+      <br />
+      <br />
+      <br />
     </>
-  )
+  );
 }
 
 export default App
