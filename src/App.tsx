@@ -40,6 +40,7 @@ import StateHook from './StateHook';
 import HuyAccordion from './sampleApp/huy/components/HuyAccordion';
 import EffectHook from './EffectHook';
 import React from 'react';
+import JobBoard from './sampleApp/thanh/JobBoard';
 
 function App() {
   const [isShowEffectHook, setIsShowEffectHook] = React.useState(true);
@@ -98,6 +99,8 @@ function App() {
       {isShowEffectHook && <EffectHook />}
  
 
+      <br />
+      <JobBoard />
 
 
       <br /><br /><br /><br />
