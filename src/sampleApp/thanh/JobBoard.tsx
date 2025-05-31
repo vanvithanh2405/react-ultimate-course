@@ -9,47 +9,41 @@ interface Job {
     url?: string;
 }
 
-const JOBS_PER_PAGE = 6;
+const LIMIT = 6;
 
 function JobBoard() {
-    const [jobIds, setJobIds] = useState<number[]>([]);
+    const [jobIds, setJobIds] = useState<number[] | null>(null);
     const [jobs, setJobs] = useState<Job[]>([]);
-    const [pages, setPages] = useState<number>(0);
+    const [page, setPage] = useState<number>(0);
 
-    const fetchDataAllJobIds = async () => {
+    // TODO: fetch all id of job stories
+    useEffect(() => {
+        fetchJobs(page); // 1
+    }, [page])
+
+    async function fetchJobIds(page: number) {
         try {
-            const res = await fetch(`https://hacker-news.firebaseio.com/v0/jobstories.json`);
-            const jobIds = await res.json();
-            setJobIds(jobIds);
+            let cloneJobs = jobIds; // [1,3,4,5,6]
+            if (!cloneJobs) {
+                const res = await fetch(`https://hacker-news.firebaseio.com/v0/jobstories.json`);
+                cloneJobs = await res.json(); // [1,3,4,5,6]
+                setJobIds(cloneJobs);
+            }
+            const start = page * LIMIT;
+            const end = start + LIMIT;
+            return cloneJobs ? cloneJobs.slice(start, end) : []; // [1,3,4,5,6].slice(6, 12)
         } catch (err) {
             console.log(err);
+            return [];
         }
     }
-
-    const fetchJobs = async () => {
-        const start = pages * JOBS_PER_PAGE;
-        const end = start + JOBS_PER_PAGE;
-        const currentIds = jobIds.slice(start, end);
-        const fetchedJobs: Job[] = [];
-        try {
-            for (const id of currentIds) {
-                const res = await fetch(`https://hacker-news.firebaseio.com/v0/item/${id}.json`);
-                const jobData = await res.json();
-                fetchedJobs.push(jobData)
-            }
-            setJobs((prevJobs) => [...prevJobs, ...fetchedJobs]);
-        } catch (err) {
-            console.log(err)
-        }
+    // TODO: show list job with job stories
+    async function fetchJobs(page: number)  {
+        const jobIdsForPage = await fetchJobIds(page);
+        const fetchJob = jobIdsForPage.map((jobid: number) => fetch(`https://hacker-news.firebaseio.com/v0/item/${jobid}.json`).then(res => res.json()))
+        const jobs = await Promise.all([...fetchJob])
+        setJobs(prevState => [...prevState, ...jobs]); // 0 -> [1,2,3,4,5], 1 ->[1,2,3,4,5,6,7,8,9,10] -> [...jobs, ...xxx]
     }
-
-    useLayoutEffect(() => {
-        fetchDataAllJobIds()
-    }, [])
-
-    useEffect(() => {
-        fetchJobs()
-    }, [pages, jobIds])
 
     return (
         <div className='job-board-container'>
@@ -62,8 +56,8 @@ function JobBoard() {
                     </div>
                 </div>
             })}
-            {(pages + 1) * JOBS_PER_PAGE < jobIds.length && (
-                <button onClick={() => setPages((prev) => prev + 1)}>Load more</button>
+             {(page + 1) * LIMIT < (jobIds || []).length && (
+                <button onClick={() => setPage((prev) => prev + 1)}>Load more</button>
             )}
         </div>
     )
