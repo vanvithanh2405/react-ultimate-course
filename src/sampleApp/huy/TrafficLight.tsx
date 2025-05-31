@@ -18,8 +18,8 @@ function TrafficLight() {
   return (
     <div className={styled.trafficLight}>
       <Light color="#ff4d4d" active={colorIndex === 0} />
-      <Light color="#00ff00" active={colorIndex === 1} />
       <Light color="#ffeb3b" active={colorIndex === 2} />
+      <Light color="#00ff00" active={colorIndex === 1} />
     </div>
   );
 }
