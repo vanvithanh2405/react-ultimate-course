@@ -40,6 +40,7 @@ import StateHook from './StateHook';
 import HuyAccordion from './sampleApp/huy/components/HuyAccordion';
 import EffectHook from './EffectHook';
 import React from 'react';
+import TrafficLight from './sampleApp/huy/trafficLight';
 
 function App() {
   const [isShowEffectHook, setIsShowEffectHook] = React.useState(true);
@@ -100,7 +101,9 @@ function App() {
 
 
 
-      <br /><br /><br /><br />
+      <br />
+      <TrafficLight />
+      <br /><br /><br />
 
 
 
