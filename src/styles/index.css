@@ -28,3 +28,16 @@ body {
 .box-black {
   background-color: #000;
 }
+
+
+.boxAnimation {
+  width: 150px;
+  height: 150px;
+  border: 1px solid #f00;
+  transition: all 1s linear;
+}
+
+.boxAnimation1:hover {
+  opacity: 0;
+  /* display: none; */
+}
