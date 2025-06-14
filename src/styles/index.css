@@ -41,3 +41,9 @@ body {
   opacity: 0;
   /* display: none; */
 }
+
+.avatarUser {
+  width: 200px;
+  height: 100px;
+  background: url('../assets/avatar.png') no-repeat;
+}

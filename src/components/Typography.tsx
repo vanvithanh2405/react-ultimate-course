@@ -8,20 +8,16 @@ interface TypographyProps {
   last_name?: string,
   onClick?: () => void,
   children?: React.ReactNode,
-  component1?: React.ElementType,
+  component1?: any,
   component2?: React.ReactNode
 }
 
 function Typography({ 
   name, 
   age, 
-  colors = [],
-  first_name,
-  last_name,
   children,
   component1: Component1,
   component2,
-  ...restProps
 }: TypographyProps) {
   // console.log('Typography', {
   //   name, 

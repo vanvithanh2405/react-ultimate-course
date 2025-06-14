@@ -1,10 +1,8 @@
-import React from 'react'
 interface UserGreetingProps{
   handleChange:()=> void
   text:string
   name:string
 }
-
 
 function HuyUserGreeting({handleChange,text,name}:UserGreetingProps) {
   return (

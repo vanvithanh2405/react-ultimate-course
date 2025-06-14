@@ -1,4 +1,3 @@
-import React from 'react'
 import { useTodoContext } from '../../contexts/TodoContext'
 
 function TodoList() {
@@ -8,7 +7,7 @@ function TodoList() {
 
   return (
      <ul>
-      {todos.map(todo => (
+      {todos.map((todo: any) => (
         <li key={todo.id}>Title: {todo.title}</li>
       ))}
     </ul>

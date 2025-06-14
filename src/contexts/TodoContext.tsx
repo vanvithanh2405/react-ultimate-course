@@ -1,10 +1,9 @@
 import React from 'react';
 
-const TodoContext = React.createContext({});
+const TodoContext = React.createContext<any>({});
 
-export const TodoProvider = ({ children }) => {
-  const [todos, setTodos] = React.useState([]);
-
+export const TodoProvider = ({ children }: React.PropsWithChildren) => {
+  const [todos, setTodos] = React.useState<any>([]);
 
   // TODO: add todo
   function addTodo(title: string) {
@@ -12,7 +11,7 @@ export const TodoProvider = ({ children }) => {
       id: Date.now(),
       title
     }
-    setTodos(prevState => [...prevState, newTodo])
+    setTodos((prevState: any) => [...prevState, newTodo])
   }
 
   // console.log('title: ', todos)

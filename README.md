@@ -55,3 +55,24 @@ $ git push
 - first render: component render UI with initial state
 - re-render (next render): component reder UI with new state
 - unmount: component removed out of DOM html
+
+## Naming conventions
+- camelCase: product, productDetail, getInformation ....
+  using:
+    - name variable
+    - name function 
+    - name folder
+    - name file
+
+- UPPERCASE: STATUS, ENV, API_BE ...
+  using:
+    - name constant in config ...
+
+- snake_case: product, product_detail, user_information ....
+  using
+    - pass body data { first_name: 'abc', last_name: '123' }
+
+- PascalCase: Product, ProductDetail, EffectHook...
+  using: 
+    - name function react component
+    - name file react component

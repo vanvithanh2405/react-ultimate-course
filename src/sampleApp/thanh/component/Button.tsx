@@ -1,6 +1,3 @@
-import React from 'react'
-
-
 interface ButtonProps {
     isLogin: boolean
     handleChange: () => void
