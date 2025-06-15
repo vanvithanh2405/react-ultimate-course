@@ -47,3 +47,18 @@ body {
   height: 100px;
   background: url('../assets/avatar.png') no-repeat;
 }
+
+h1, h2 {
+  font-weight: bold;
+  font-size: 24px;
+}
+
+button {
+  border: 1px solid #000;
+  background-color: rgb(220, 216, 216);
+}
+
+input {
+  border: 1px solid #000;
+  background-color: rgb(220, 216, 216);
+}

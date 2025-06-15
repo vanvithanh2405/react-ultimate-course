@@ -42,6 +42,7 @@ import EffectHook from './EffectHook';
 import React from 'react';
 import ContextAPI from './ContextAPI';
 import { TodoProvider } from './contexts/TodoContext';
+import RefHook from './RefHook';
 
 function App() {
   const [isShowEffectHook, setIsShowEffectHook] = React.useState(true);
@@ -109,6 +110,9 @@ function App() {
       <TodoProvider>
        <ContextAPI />
       </TodoProvider>
+
+      <br />
+      <RefHook />
 
  
 
