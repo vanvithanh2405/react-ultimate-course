@@ -74,5 +74,17 @@ $ git push
 
 - PascalCase: Product, ProductDetail, EffectHook...
   using: 
-    - name function react component
+    - name function react compo
+    nent
     - name file react component
+
+
+### Performance optimize
+- optimize performance web
+  - lighthouse: First Contentful Paint (FCP), Full Content Paint (FCP), Cumulative Layoutshift (CLS) ..
+  - how to improve fast load time website
+- optimize peformance react
+  - prevent component re-render unnecessary
+  - lazy load component -> just load resource for this page
+  - code split component -> mình sẽ load resource when user interactive, thay vì load resource cho lần đầu
+  - infinite scroll load

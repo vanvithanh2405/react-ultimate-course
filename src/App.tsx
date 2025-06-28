@@ -43,6 +43,8 @@ import React from 'react';
 import ContextAPI from './ContextAPI';
 import { TodoProvider } from './contexts/TodoContext';
 import RefHook from './RefHook';
+import PerformanceHook from './PerformanceHook';
+import CustomHook from './CustomHook';
 
 function App() {
   const [isShowEffectHook, setIsShowEffectHook] = React.useState(true);
@@ -113,6 +115,12 @@ function App() {
 
       <br />
       <RefHook />
+
+      <br />
+      <PerformanceHook />
+
+      <br />
+      <CustomHook />
 
  
 

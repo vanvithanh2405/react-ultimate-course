@@ -1,5 +1,6 @@
 import React from 'react'
 import Todos from './components/propDrilling/Todos';
+import { useSmallScreen } from './hooks/useSmallScreen';
 
 export interface ITodoItem {
   id: number,
@@ -7,6 +8,7 @@ export interface ITodoItem {
 }
 
 function PropDrillingLiftingStateUp() {
+  const { isSmallScreen } = useSmallScreen();
   const [todos, setTodos] = React.useState([
     {
       id: 1,
@@ -26,6 +28,10 @@ function PropDrillingLiftingStateUp() {
   return (
     <div>
       <h1>PropDrillingLiftingStateUp</h1>
+
+      <div>
+        Window is small screen: {isSmallScreen ? 'Yes' : 'No'}
+      </div>
 
       <div>
         <h3>Todo List</h3>

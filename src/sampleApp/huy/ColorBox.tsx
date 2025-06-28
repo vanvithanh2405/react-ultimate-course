@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styled from "./css/Box.module.css";
+import { useSmallScreen } from "../../hooks/useSmallScreen";
 
 const data = [
   { id: 1, text: "red", backgroundColor: "red" },
@@ -9,6 +10,7 @@ const data = [
 ];
 
 function ColorBox() {
+  const { isSmallScreen } = useSmallScreen();
   const [colors] = useState(data);
   const [currentColor, setCurrentColor] = useState("default");
 
@@ -24,6 +26,10 @@ function ColorBox() {
     <div>
       <h1>Huy Color Box</h1>
       <p>Current color: {currentColor}</p>
+       <div>
+        Window is small screen: {isSmallScreen ? 'Yes' : 'No'}
+      </div>
+      
       <div className={styled.container}>
         {colors.map((color) => {
           return (
