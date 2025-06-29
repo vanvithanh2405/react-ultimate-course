@@ -1,3 +1,4 @@
+import { useNavigate, useSearchParams } from 'react-router';
 import { useTable } from '../../hooks/useTable';
 
 /* show list product
@@ -7,6 +8,10 @@ import { useTable } from '../../hooks/useTable';
 - order by column: asc, desc
 */
 function TodoBoard() {
+  const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const _page = searchParams.get('page');
+  const _limit = searchParams.get('limit');
   const {
     dataSource,
     pagination,
@@ -14,7 +19,9 @@ function TodoBoard() {
     onChangeNextPage,
     onChangeLimit
   } = useTable({
-    path: 'todos'
+    path: 'todos',
+    page: _page ? Number(_page) : undefined,
+    limit: _limit ? Number(_limit) : undefined
   });
 
   return (
@@ -31,10 +38,13 @@ function TodoBoard() {
               <th scope="col" className="px-6 py-3">
                 Completed
               </th>
+              <th scope="col" className="px-6 py-3">
+                Action
+              </th>
             </tr>
           </thead>
           <tbody>
-            {dataSource.map(data => (
+            {dataSource.map((data: any) => (
               <tr key={data.id} className="bg-white border-b border-gray-200">
                 <th
                   scope="row"
@@ -44,6 +54,15 @@ function TodoBoard() {
                 </th>
                 <td className="px-6 py-4">
                   {data.completed ? 'Completed' : 'New'}
+                </td>
+                <td className="px-6 py-4">
+                  <button 
+                    type="button" 
+                    className="cursor-pointer text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm" 
+                    onClick={() => navigate(`todo/${data.id}`)}
+                  >
+                    Show Detail
+                  </button>
                 </td>
               </tr>
             ))}

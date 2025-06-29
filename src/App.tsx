@@ -45,21 +45,91 @@ import { TodoProvider } from './contexts/TodoContext';
 import RefHook from './RefHook';
 import PerformanceHook from './PerformanceHook';
 import CustomHook from './CustomHook';
+import { Link, Route, Routes, useLocation, useNavigate } from 'react-router';
+import TodoDetail from './components/leaderboard/TodoDetail';
+import AlbumDetail from './components/leaderboard/AlbumDetail';
 
 function App() {
+  const navigate = useNavigate();
+  const location = useLocation();
   const [isShowEffectHook, setIsShowEffectHook] = React.useState(true);
 
+  React.useEffect(() => {
+    // call google analytic
+    console.log('App google analytic: ', location)
+  }, [location]);
+
+  function gotoHome() {
+    navigate('/')
+  }
+  
   return (
     <>
-      <JSX />
+      <nav className="bg-white border-gray-200 dark:bg-gray-900">
+        <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+          <div className="hidden w-full md:block md:w-auto" id="navbar-default">
+            <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+              <li>
+                <Link
+                  to="/jsx"
+                  replace
+                  className="block py-2 px-3 text-white bg-blue-700 rounded-sm md:bg-transparent  md:p-0 dark:text-white"
+                >
+                  JSX
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/props"
+                  className="block py-2 px-3 text-white bg-blue-700 rounded-sm md:bg-transparent  md:p-0 dark:text-white"
+                >
+                  Props
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/state"
+                  className="block py-2 px-3 text-white bg-blue-700 rounded-sm md:bg-transparent  md:p-0 dark:text-white"
+                >
+                  State
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/component"
+                  className="block py-2 px-3 text-white bg-blue-700 rounded-sm md:bg-transparent  md:p-0 dark:text-white"
+                >
+                  Component
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/leaderboard"
+                  className="block py-2 px-3 text-white bg-blue-700 rounded-sm md:bg-transparent  md:p-0 dark:text-white"
+                >
+                  Leaderboard
+                </Link>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
 
-      <Props />
+      <button type="button" onClick={gotoHome}>Navigate to Home</button>
 
-      <br /><br />
-      <State />
+      <Routes>
+        <Route path="/" element={<div>this is home</div>} />
+        <Route path="/jsx" element={<JSX />} />
+        <Route path="/props" element={<Props />} />
+        <Route path="/state" element={<State />} />
+        <Route path="/component" element={<Component />} />
+        {/* <Route path="/component/:userId/profile/:componentId" element={<Component />} /> */}
+        <Route path="/leaderboard" element={<CustomHook />} />
+        <Route path="/leaderboard/todo/:todoId" element={<TodoDetail />} />
+        <Route path="/leaderboard/album/:albumId" element={<AlbumDetail />} />
+      </Routes>
 
-      <br />
-      <Component />
+      <hr />
 
       <br />
       <ConditionalRendering />
@@ -120,7 +190,7 @@ function App() {
       <PerformanceHook />
 
       <br />
-      <CustomHook />
+      
 
  
 

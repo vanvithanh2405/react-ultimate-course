@@ -1,12 +1,14 @@
 import React from "react";
+import { useNavigate } from "react-router";
 
 interface TableProps {
   path: string,
-  page?: number,
-  limit?: number
+  page?: number | undefined,
+  limit?: number | undefined,
 }
 
 export const useTable = ({ path, page = 1, limit = 3 }: TableProps) => {
+  const navigate = useNavigate();
   const [dataSource, setDataSource] = React.useState<any>([]);
   const [pagination, setPagination] = React.useState({
     page,
@@ -27,24 +29,41 @@ export const useTable = ({ path, page = 1, limit = 3 }: TableProps) => {
   }, [pagination]);
   
   function onChangePrevPage() {
-    setPagination(prevState => ({
-      ...prevState,
-      page: prevState.page - 1
-    }))
+    setPagination(prevState => {
+      const newPage = prevState.page - 1;
+      navigate(`/leaderboard?page=${newPage}&limit=${prevState.limit}`, {
+        replace: true
+      })
+      return {
+        ...prevState,
+        page: newPage
+      }
+    })
   }
 
   function onChangeNextPage() {
-    setPagination(prevState => ({
-      ...prevState,
-      page: prevState.page + 1
-    }))
+    setPagination(prevState => {
+      const newPage = prevState.page + 1;
+      navigate(`/leaderboard?page=${newPage}&limit=${prevState.limit}`, {
+        replace: true
+      })
+      return {
+        ...prevState,
+        page: newPage
+      }
+    })
   }
 
   function onChangeLimit(limit: number) {
-    setPagination(prevState => ({
-      ...prevState,
-      limit
-    }))
+    setPagination(prevState => {
+      navigate(`/leaderboard?page=${prevState.page}&limit=${limit}`, {
+        replace: true
+      })
+      return {
+        ...prevState,
+        limit
+      }
+    })
   }
 
   return {
