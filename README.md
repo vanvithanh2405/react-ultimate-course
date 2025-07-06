@@ -88,3 +88,21 @@ $ git push
   - lazy load component -> just load resource for this page
   - code split component -> mình sẽ load resource when user interactive, thay vì load resource cho lần đầu
   - infinite scroll load
+
+### Authenticate & authorize
+- Authenticate: xác nhận
+    => kiểm tra xem account có đăng ký trong hệ thống hay không.
+- Authorize from FE: phân quyền (account A)
+  => phân quyền xem account đó có những permission gì
+  - by Page
+    - page/products -> read
+    - page/delete -> can't access
+    - management/user -> can't access -> UI show 401 not authorize. Please contact to admin
+  - by action
+    - page/prodcts -> read, create
+- Authorize from BE
+ - Nó sẽ dựa vào access token
+ - workflow: 
+    - register: user A register -> BE generate access token A (kèm role) 
+    - login: user A login -> BE return access token A -> FE save access token A into localstore
+    - action: user A performs an action create (call api /api/user/create kèm theo access token) -> BE check access token có what role? -> member -> return can't action
