@@ -54,6 +54,8 @@ import PaymenMethod from './components/user/PaymenMethod';
 import Login from './Login';
 import AuthRoute from './routes/AuthRoute';
 import PublicRoute from './routes/PublicRoute';
+import Invoice from './Invoice';
+import InvoiceDetail from './InvoiceDetail';
 
 function App() {
   const navigate = useNavigate();
@@ -125,7 +127,7 @@ function App() {
                   Leaderboard
                 </Link>
               </li>
-               <li>
+              <li>
                 <Link
                   to="/user"
                   className="block py-2 px-3 text-white bg-blue-700 rounded-sm md:bg-transparent  md:p-0 dark:text-white"
@@ -133,12 +135,18 @@ function App() {
                   User
                 </Link>
               </li>
+              <li>
+                <Link
+                  to="/invoice"
+                  className="block py-2 px-3 text-white bg-blue-700 rounded-sm md:bg-transparent  md:p-0 dark:text-white"
+                >
+                  Invoice
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
       </nav>
-
-      <button type="button" onClick={gotoHome}>Navigate to Home</button>
 
       <Routes>
         <Route path="/" element={<div>this is home</div>} />
@@ -158,6 +166,11 @@ function App() {
           <Route index element={<div>Please choose tab</div>} />
           <Route path="profile" element={<Profile />} />
           <Route path="payment" element={<PaymenMethod />} />
+        </Route>
+
+        <Route path="/invoice" element={<Invoice />}>
+          <Route index element={<div>Select choose invoice</div>} />
+          <Route path=":invoiceId" element={<InvoiceDetail />} />
         </Route>
        
       </Routes>
