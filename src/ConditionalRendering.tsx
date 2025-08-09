@@ -66,6 +66,8 @@ function ConditionalRendering() {
     }
     setTodo((prevState) => [...(prevState || []), newTodo])
   }
+
+  console.log('Conditional Rendering =====================')
   
   return (
     <div>

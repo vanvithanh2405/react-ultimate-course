@@ -1,14 +1,37 @@
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router';
+import { setAccessToken } from './redux/user.actions';
 
 function Login() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
-  function onSubmit(e: any) {
+  async function onSubmit(e: any) {
     e.preventDefault();
     // call api -> return access token
-    const access_token = 'tony';
-    window.localStorage.setItem('access_token', access_token);
-    navigate('/')
+    try {
+      const bodyData = {
+        "data": {
+          "email": "hoanghai@gmail.com",
+          "password": "123456"
+        }
+      }
+      const response = await fetch('https://tony-auth-express-vdee.vercel.app/api/user/signin', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(bodyData)
+      });
+      const data = await response.json();
+      const access_token = data.data.access_token;
+      window.localStorage.setItem('access_token', access_token);
+      dispatch(setAccessToken(access_token))
+      navigate('/user')
+
+    } catch (err) {
+      console.log('Login Fails: ', err)
+    }
   }
   
   return (
